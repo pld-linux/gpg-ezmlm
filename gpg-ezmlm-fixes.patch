@@ -1,0 +1,62 @@
+--- ./gpg-ezmlm-convert.pl~	2005-04-15 19:37:12.000000000 +0300
++++ ./gpg-ezmlm-convert.pl	2005-04-15 19:38:59.000000000 +0300
+@@ -21,7 +21,7 @@
+ 
+ open NEWSEND, ">$dot.n" or die "Cannot make temporary file $dot.n: $!\n";
+ open NEWDEFAULT, ">$dot-default.n" or 
+-  die 'Cannot make temporary file $dot-default.n: $!\n";
++  die "Cannot make temporary file $dot-default.n: $!\n";
+ 
+ 
+ open CONFIG, ">$dir/config" or
+--- ./gpg-ezmlm-convert.pl~	2005-04-15 19:39:42.000000000 +0300
++++ ./gpg-ezmlm-convert.pl	2005-04-15 19:52:26.000000000 +0300
+@@ -5,29 +5,37 @@
+ #creating the appropriate subdirs, and generating a list key for you.
+ 
+ use strict;
++my $usage = "Usage: $0 <dir> <dot>
+ 
+-my $dir = shift;
+-my $dot = shift;
++Where <dir> is the directory the current ezmlm list lives in, and <dot> is in
++the form of ~/.qmail-mlname, for a mailing list named mlname. Same as the dot
++that you used in ezmlm-make(1). Edit the config file created in the directory
++to your preferences.
++
++To convert an existing gpg-ezmlm list to this version, just point the dotfiles
++(.qmail-<list> and .qmail-<list>-default) to the new gpg-ezmlm-send.pl and
++gpg-ezmlm-manage.pl. If you want to change the default configuration settings,
++a sample config file has been included, edit to taste.
++
++";
++
++my $dir = shift or die $usage;
++my $dot = shift or die $usage;
+ 
+ if (!(-d $dir)) {
+-  die "No such directory $maildirlist\n";
++  die "No such directory $dir\n";
+ }
+ 
+ mkdir "$dir/.gnupg", 0700 or 
+-  die "Cannot make $maildirlist/.gnupg: $!\n";
++  die "Cannot make $dir/.gnupg: $!\n";
+ 
+ mkdir "$dir/tmp", 0700 or 
+-  die "Cannot make $maildirlist/tmp: $!\n";
+-
+-open NEWSEND, ">$dot.n" or die "Cannot make temporary file $dot.n: $!\n";
+-open NEWDEFAULT, ">$dot-default.n" or 
+-  die "Cannot make temporary file $dot-default.n: $!\n";
+-
++  die "Cannot make $dir/tmp: $!\n";
+ 
+ open CONFIG, ">$dir/config" or
+   die "Cannot open $dir/config: $!\n";
+ 
+-print CONFIG << ENDCONFIG;
++print CONFIG <<ENDCONFIG;
+ #This is the configuration file for gpg-ezmlm. The file as distributed
+ #with the package contains all options set to their default values,
+ #and commented out. To change these options, uncomment the line,
