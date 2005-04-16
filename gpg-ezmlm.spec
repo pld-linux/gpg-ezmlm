@@ -1,4 +1,5 @@
 Summary:	GPG-Ezmlm encrypted mailing list
+Summary(pl):	GPG-Ezmlm - szyfrowana lista dyskusyjna
 Name:		gpg-ezmlm
 Version:	0.3.2
 Release:	0.8
@@ -13,12 +14,12 @@ BuildRequires:	rpmbuild(macros) >= 1.194
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	sed >= 4.0
 Requires:	gnupg
-# requires acutally just ezmlm.
+# requires actually just ezmlm.
 Requires:	ezmlm-idx
 Requires:	qmail
-Requires:	perl-base
 Requires:	perl-Digest-MD5
 Requires:	perl-File-Sync
+Requires:	perl-base
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -29,6 +30,14 @@ encrypted mail communications without requiring that all users know
 all other users' keys. Key exchange during list subscription is
 supported. It requires an existing Ezmlm installation to function.
 
+%description -l pl
+GPG-Ezmlm to szyfrowana lista dyskusyjna. Listy zaszyfrowane PGP lub
+GPG wys³ane na listê s± ponownie szyfrowane kluczami subskrybentów, co
+pozwala na szyfrowan± komunikacjê bez potrzeby posiadania przez
+wszystkich kluczy pozosta³ych u¿ytkowników. Wymiana kluczy podczas
+zapisywania na listê jest obs³ugiwana. Pakiet wymaga do dzia³ania
+istniej±cej instalacji Ezmlma.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -37,7 +46,7 @@ sed -i -e 's,/usr/local/bin/gpg,%{_bindir}/gpg,' *.p[lm] config
 
 %build
 %{__perl} Makefile.PL \
-    INSTALLDIRS=vendor
+	INSTALLDIRS=vendor
 %{__make}
 
 %install
@@ -69,5 +78,5 @@ fi
 %attr(755,root,root) %{_bindir}/gpg-ezmlm-convert.pl
 %attr(755,root,root) %{_bindir}/gpg-ezmlm-manage.pl
 %attr(755,root,root) %{_bindir}/gpg-ezmlm-send.pl
-%{_mandir}/man3/GpgEzmlm.3pm*
 %{perl_vendorlib}/GpgEzmlm.pm
+%{_mandir}/man3/GpgEzmlm.3pm*
