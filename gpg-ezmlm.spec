@@ -4,7 +4,7 @@ Name:		gpg-ezmlm
 Version:	0.3.2
 Release:	0.8
 Epoch:		0
-License:	BSD License
+License:	BSD
 Group:		Applications/Mail
 Source0:	http://www.synacklabs.net/projects/crypt-ml/%{name}-%{version}.tar.gz
 # Source0-md5:	4541a06a407a74dd1110c62a8fdef484
