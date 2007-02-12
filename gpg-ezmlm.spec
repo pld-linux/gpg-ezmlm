@@ -1,5 +1,5 @@
 Summary:	GPG-Ezmlm encrypted mailing list
-Summary(pl):	GPG-Ezmlm - szyfrowana lista dyskusyjna
+Summary(pl.UTF-8):   GPG-Ezmlm - szyfrowana lista dyskusyjna
 Name:		gpg-ezmlm
 Version:	0.3.2
 Release:	0.8
@@ -30,13 +30,13 @@ encrypted mail communications without requiring that all users know
 all other users' keys. Key exchange during list subscription is
 supported. It requires an existing Ezmlm installation to function.
 
-%description -l pl
+%description -l pl.UTF-8
 GPG-Ezmlm to szyfrowana lista dyskusyjna. Listy zaszyfrowane PGP lub
-GPG wys³ane na listê s± ponownie szyfrowane kluczami subskrybentów, co
-pozwala na szyfrowan± komunikacjê bez potrzeby posiadania przez
-wszystkich kluczy pozosta³ych u¿ytkowników. Wymiana kluczy podczas
-zapisywania na listê jest obs³ugiwana. Pakiet wymaga do dzia³ania
-istniej±cej instalacji Ezmlma.
+GPG wysÅ‚ane na listÄ™ sÄ… ponownie szyfrowane kluczami subskrybentÃ³w, co
+pozwala na szyfrowanÄ… komunikacjÄ™ bez potrzeby posiadania przez
+wszystkich kluczy pozostaÅ‚ych uÅ¼ytkownikÃ³w. Wymiana kluczy podczas
+zapisywania na listÄ™ jest obsÅ‚ugiwana. Pakiet wymaga do dziaÅ‚ania
+istniejÄ…cej instalacji Ezmlma.
 
 %prep
 %setup -q
