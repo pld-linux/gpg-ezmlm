@@ -1,5 +1,5 @@
 Summary:	GPG-Ezmlm encrypted mailing list
-Summary(pl.UTF-8):   GPG-Ezmlm - szyfrowana lista dyskusyjna
+Summary(pl.UTF-8):	GPG-Ezmlm - szyfrowana lista dyskusyjna
 Name:		gpg-ezmlm
 Version:	0.3.2
 Release:	0.8
